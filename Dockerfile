@@ -4,6 +4,8 @@
 FROM ubuntu:18.04
 
 ENV GOLANG_VERSION 1.12.7
+ENV goRelArch linux-amd64
+ENV goRelSha256 66d83bfb5a9ede000e33c6579a91a29e6b101829ad41fffb5c5bb6c900e109d9
 
 # Utils
 RUN apt-get update && apt-get install -y -qq \
@@ -20,9 +22,7 @@ RUN apt-get update && apt-get install -y -qq \
 	pkg-config
 
 
-RUN set -eux; \ 
-goRelArch='linux-amd64'; \
-goRelSha256='66d83bfb5a9ede000e33c6579a91a29e6b101829ad41fffb5c5bb6c900e109d9'; \
+RUN set -eux; \
 url="https://golang.org/dl/go${GOLANG_VERSION}.${goRelArch}.tar.gz"; \
 	wget -O go.tgz "$url"; \
 	echo "${goRelSha256} go.tgz" | sha256sum -c -; \
