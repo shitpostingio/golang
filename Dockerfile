@@ -3,19 +3,22 @@
 #pull from ubuntu 18.04
 FROM ubuntu:18.04
 
-# gcc for cgo
-RUN apt-get update && apt-get install -y --no-install-recommends \
-		g++ \
-		gcc \
-		libc6-dev \
-        wget \
-        openssl \
-        ca-certificates \
-		make \
-		pkg-config \
-	&& rm -rf /var/lib/apt/lists/*
-
 ENV GOLANG_VERSION 1.12.7
+
+# Utils
+RUN apt-get update && apt-get install -y -qq \
+    wget \
+    openssl \
+    ca-certificates \
+    git \
+    sshpass \
+	# gcc for cgo
+	g++ \
+	gcc \
+	libc6-dev \
+	make \
+	pkg-config
+
 
 RUN set -eux; \ 
 goRelArch='linux-amd64'; \
@@ -33,3 +36,11 @@ ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 WORKDIR $GOPATH
+
+# Clean up all the mess done by installing stuff
+RUN apt-get clean \
+    && apt-get autoclean \
+    && echo -n > /var/lib/apt/extended_states \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /usr/share/man/?? \
+    && rm -rf /usr/share/man/??_*
