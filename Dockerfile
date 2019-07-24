@@ -1,6 +1,6 @@
-#Shitposting custom golang docker image
+# Shitposting custom golang docker image
 
-#pull from ubuntu 18.04
+# Pull from ubuntu 18.04
 FROM ubuntu:18.04
 
 ENV GOLANG_VERSION 1.12.7
@@ -21,15 +21,14 @@ RUN apt-get update && apt-get install -y -qq \
 	make \
 	pkg-config
 
-
+# Install go
 RUN set -eux; \
-url="https://golang.org/dl/go${GOLANG_VERSION}.${goRelArch}.tar.gz"; \
+    url="https://golang.org/dl/go${GOLANG_VERSION}.${goRelArch}.tar.gz"; \
 	wget -O go.tgz "$url"; \
 	echo "${goRelSha256} go.tgz" | sha256sum -c -; \
 	tar -C /usr/local -xzf go.tgz; \
 	rm go.tgz; \
-    export PATH="/usr/local/go/bin:$PATH"; \
-	go version
+    export PATH="/usr/local/go/bin:$PATH";
 
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
