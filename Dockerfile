@@ -1,7 +1,7 @@
 # Shitposting custom golang docker image
 
-# Pull from ubuntu 18.04
-FROM ubuntu:18.04
+# Pull from debian 10 buster
+FROM debian:buster
 
 ENV GOLANG_VERSION 1.13
 ENV goRelArch linux-amd64
