@@ -3,9 +3,9 @@
 # Pull from debian 10 buster
 FROM debian:buster
 
-ENV GOLANG_VERSION 1.13.3
+ENV GOLANG_VERSION 1.13.4
 ENV goRelArch linux-amd64
-ENV goRelSha256 0804bf02020dceaa8a7d7275ee79f7a142f1996bfd0c39216ccb405f93f994c0
+ENV goRelSha256 692d17071736f74be04a72a06dab9cac1cd759377bd85316e52b2227604c004c
 
 # Utils
 RUN apt-get update && apt-get install -y -qq \
