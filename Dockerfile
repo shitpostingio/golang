@@ -1,6 +1,6 @@
 # Shitposting custom golang docker image
 
-# Pull from debian 10 buster
+# Pull from our tdlib debian base image
 FROM shitpostingio/tdlib:latest
 
 ENV GOLANG_VERSION 1.13.4
