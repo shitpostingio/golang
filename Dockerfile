@@ -1,7 +1,7 @@
 # Shitposting custom golang docker image
 
 # Pull from our tdlib debian base image
-FROM shitpostingio/tdlib:latest
+FROM registry.gitlab.com/shitposting/tdlib:latest
 
 ENV GOLANG_VERSION 1.13.4
 ENV goRelArch linux-amd64
