@@ -3,9 +3,9 @@
 # Pull from our tdlib debian base image
 FROM docker.pkg.github.com/shitpostingio/tdlib/tdlib:latest
 
-ENV GOLANG_VERSION 1.14.3
+ENV GOLANG_VERSION 1.15.2
 ENV goRelArch linux-amd64
-ENV goRelSha256 1c39eac4ae95781b066c144c58e45d6859652247f7515f0d2cba7be7d57d2226
+ENV goRelSha256 b49fda1ca29a1946d6bb2a5a6982cf07ccd2aba849289508ee0f9918f6bb4552
 
 # Utils
 RUN apt-get update && apt-get install -y -qq \
