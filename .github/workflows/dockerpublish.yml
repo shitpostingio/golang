@@ -1,20 +1,8 @@
 name: Docker
 
-on:
-  push:
-    branches: 
-      - master
-  pull_request:
-    branches:
-    - main
-
-    # Publish `v1.2.3` tags as releases.
-    tags:
-      - v*
-
+on: push
 env:
   IMAGE_NAME: golang
-
 jobs:
   # Push image to GitHub Registru.
   # See also https://docs.docker.com/docker-hub/builds/
