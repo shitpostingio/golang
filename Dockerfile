@@ -1,11 +1,11 @@
 # Shitposting custom golang docker image
 
 # Pull from our tdlib debian base image
-FROM ghcr.io/shitpostingio/tdlib:latest
+FROM ghcr.io/shitpostingio/tdlib:untagged
 
-ENV GOLANG_VERSION 1.16.3
+ENV GOLANG_VERSION 1.17.5
 ENV goRelArch linux-amd64
-ENV goRelSha256 951a3c7c6ce4e56ad883f97d9db74d3d6d80d5fec77455c6ada6c1f7ac4776d2
+ENV goRelSha256 bd78114b0d441b029c8fe0341f4910370925a4d270a6a590668840675b0c653e
 
 # Utils
 RUN apt-get update && apt-get install -y -qq \
